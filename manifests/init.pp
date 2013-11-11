@@ -11,11 +11,29 @@
 #
 # Sample Usage:
 #
-class gcc {
- 
-  include gcc::params
+class gcc (
+  $ensure              = 'present',
+  $autoupgrade         = false,
+  $package             = $gcc::params::package,
+) inherits gcc::params {
 
-  package { $gcc::params::gcc_package:
-    ensure => installed 
+  case $ensure {
+    /(present)/: {
+      if $autoupgrade == true {
+        $package_ensure = 'latest'
+      } else {
+        $package_ensure = 'present'
+      }
+    }
+    /(absent)/: {
+      $package_ensure = 'absent'
+    }
+    default: {
+      fail('ensure parameter must be present or absent')
+    }
+  }
+
+  package { $package:
+    ensure    => $package_ensure,
   }
 }

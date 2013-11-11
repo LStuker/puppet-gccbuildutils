@@ -11,13 +11,26 @@
 # Sample Usage:
 #
 class gcc::params{
-  
+
   case $::osfamily {
     'RedHat': {
-       $gcc_package = 'gcc'
+       $package = 'gcc'
     }
     'Debian': {
-       $gcc_package = [ 'gcc', 'build-essential' ]
+       $package = [ 'gcc', 'build-essential' ]
+    }
+    solaris: {
+      case $::kernelrelease {
+        '5.11': {
+          $package = 'gcc'
+        }
+        default: {
+          warning("Module 'gcc' is not currently supported on Solaris with ${::kernelrelease}")
+        }
+      }
+    }
+    default: {
+      warning("Module 'gcc' is not currently supported on Solaris with ${::operatingsystem}")
     }
   }
 }
