@@ -1,3 +1,8 @@
+2013-11-11 - Release 0.1.1
+* Add support for Solaris
+* Add params
+* Add README file
+
 2013-08-14 - Release 0.1.0
 
 Features:
@@ -7,3 +12,5 @@ Amazon Linux is RedHat osfamily on facter version 1.7
 2011-06-03 - Dan Bode <dan@puppetlabs.com> - 0.0.3
 * committed source to git
 * added tests
+
+
