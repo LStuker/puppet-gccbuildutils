@@ -1,3 +1,6 @@
+2013-11-12 - Release 0.2.0
+- Rename module to buildutils, because we install now more than just gcc
+
 2013-11-11 - Release 0.1.1
 * Add support for Solaris
 * Add params

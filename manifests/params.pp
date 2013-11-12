@@ -1,6 +1,6 @@
-# Class: gcc::params
+# Class: gccbuildutils::params
 #
-# This class manages parameters for the gcc module
+# This class manages parameters for the gccbuildutils module
 #
 # Parameters:
 #
@@ -10,19 +10,19 @@
 #
 # Sample Usage:
 #
-class gcc::params{
+class gccbuildutils::params{
 
   case $::osfamily {
     'RedHat': {
-       $package = 'gcc'
+       $packages = ['gcc','automake','autoconf',
     }
     'Debian': {
-       $package = [ 'gcc', 'build-essential' ]
+       $packages = [ 'gcc', 'build-essential' ]
     }
     solaris: {
       case $::kernelrelease {
         '5.11': {
-          $package = 'gcc'
+          $packages = ['gcc','automake','autoconfig','libtools','gdb','binutils', 'headers']
         }
         default: {
           warning("Module 'gcc' is not currently supported on Solaris with ${::kernelrelease}")

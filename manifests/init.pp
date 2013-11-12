@@ -1,8 +1,22 @@
-# Class: gcc
+# Class: gccbuildutils
 #
-# This class installs gcc
+# This class installs gcc and other build utils for gcc
 #
 # Parameters:
+#
+#   [*ensure*]
+#     Ensure if present or absent.
+#     Default: present
+#
+#   [*autoupgrade*]
+#     Upgrade package automatically, if there is a newer version.
+#     Default: false
+#
+#   [*package*]
+#     Name of the package.
+#     Only set this, if your platform is not supported or you know,
+#     what you're doing.
+#     Default: auto-set, platform specific
 #
 # Actions:
 #   - Install the gcc package
@@ -11,11 +25,11 @@
 #
 # Sample Usage:
 #
-class gcc (
+class gccbuildutils (
   $ensure              = 'present',
   $autoupgrade         = false,
-  $package             = $gcc::params::package,
-) inherits gcc::params {
+  $package             = $gccbuildutils::params::package,
+) inherits gccbuildutils::params {
 
   case $ensure {
     /(present)/: {

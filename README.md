@@ -1,4 +1,4 @@
-#GCC
+#GCC build utils
 
 ####Table of Contents
 
@@ -14,11 +14,12 @@
 
 ##Overview
 
-The GCC module installs gcc.
+The gccbuildutils module installs gcc and other for gcc required build utils.
+The gccbuildutils is a forked of https://github.com/puppetlabs/puppetlabs-gcc but with additional build tools
 
 ##Module Description
 
-The GCC module manages the installation gcc.
+The gccbuildutils module manages the installation gcc.
 
 ##Setup
 
@@ -30,7 +31,7 @@ The GCC module manages the installation gcc.
 ##Usage
 
 ```puppet
-class { 'gcc':
+class { 'gccbuildutils':
 }
 ```
 
@@ -38,11 +39,11 @@ class { 'gcc':
 
 ###Parameters
 
-####gcc::ensure
+####gccbuildutils::ensure
 
 Ensure if present or absent.
 
-####gcc::autoupgrade
+####gccbuildutils::autoupgrade
 
 Upgrade package automatically, if there is a newer version.
 
@@ -59,21 +60,8 @@ This module has been tested on:
 
 Testing on other platforms has been light and cannot be guaranteed.
 
-#Development
-
-Puppet Labs modules on the Puppet Forge are open projects, and community
-contributions are essential for keeping them great. We can’t access the
-huge number of platforms and myriad of hardware, software, and deployment
-configurations that Puppet is intended to serve.
-
-We want to keep it as easy as possible to contribute changes so that our
-modules work in your environment. There are a few guidelines that we need
-contributors to follow so that we can have a chance of keeping on top of things.
-
-You can read the complete module contribution guide [on the Puppet Labs wiki.](http://projects.puppetlabs.com/projects/module-site/wiki/Module_contributing)
-
 ### Authors
-
+This module is a forke of https://github.com/puppetlabs/puppetlabs-gcc.
 The following contributor have contributed patches to this module (beyond Puppet Labs):
 
 * apenney
