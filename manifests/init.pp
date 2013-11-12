@@ -12,7 +12,7 @@
 #     Upgrade package automatically, if there is a newer version.
 #     Default: false
 #
-#   [*package*]
+#   [*packages*]
 #     Name of the package.
 #     Only set this, if your platform is not supported or you know,
 #     what you're doing.
@@ -28,7 +28,7 @@
 class gccbuildutils (
   $ensure              = 'present',
   $autoupgrade         = false,
-  $package             = $gccbuildutils::params::package,
+  $packages             = $gccbuildutils::params::packages,
 ) inherits gccbuildutils::params {
 
   case $ensure {
@@ -47,7 +47,7 @@ class gccbuildutils (
     }
   }
 
-  package { $package:
+  package { $packages:
     ensure    => $package_ensure,
   }
 }
