@@ -14,7 +14,7 @@ class gccbuildutils::params{
 
   case $::osfamily {
     'RedHat': {
-       $packages = ['gcc','automake','autoconf',
+       $packages = ['gcc','automake','autoconf','libtool','gdb','binutils']
     }
     'Debian': {
        $packages = [ 'gcc', 'build-essential' ]
@@ -22,15 +22,15 @@ class gccbuildutils::params{
     solaris: {
       case $::kernelrelease {
         '5.11': {
-          $packages = ['gcc','automake','autoconfig','libtools','gdb','binutils', 'headers']
+          $packages = ['gcc','automake','autoconfig','libtool','gdb','binutils', 'headers']
         }
         default: {
-          warning("Module 'gcc' is not currently supported on Solaris with ${::kernelrelease}")
+          warning("Module 'gccbuildutils' is not currently supported on Solaris with ${::kernelrelease}")
         }
       }
     }
     default: {
-      warning("Module 'gcc' is not currently supported on Solaris with ${::operatingsystem}")
+      warning("Module 'gccbuildutils' is not currently supported on Solaris with ${::operatingsystem}")
     }
   }
 }
