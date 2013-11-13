@@ -22,7 +22,7 @@ class gccbuildutils::params{
     solaris: {
       case $::kernelrelease {
         '5.11': {
-          $packages = ['gcc','pkg://solaris/developer/build/automake','pkg://solaris/developer/build/autoconf','libtool','gdb','binutils', 'pkg://solaris/system/header']
+          $packages = ['gcc-3','pkg://solaris/developer/build/automake','pkg://solaris/developer/build/autoconf','libtool','gdb','pkg:/developer/gnu-binutils', 'pkg://solaris/system/header']
         }
         default: {
           warning("Module 'gccbuildutils' is not currently supported on Solaris with ${::kernelrelease}")
