@@ -17,7 +17,10 @@ class gccbuildutils::params{
        $packages = ['gcc','automake','autoconf','libtool','gdb','binutils']
     }
     'Debian': {
-       $packages = [ 'gcc', 'build-essential' ]
+       $packages = ['gcc', 'build-essential']
+    }
+    'Suse': {
+      $packages = ['gcc', 'automake', 'autoconf', 'libtool', 'gdb', 'binutils']
     }
     solaris: {
       case $::kernelrelease {
