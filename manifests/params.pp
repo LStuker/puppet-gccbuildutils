@@ -29,7 +29,7 @@ class gccbuildutils::params{
         }
         '5.10': {
           $packages = ['CSWgcc4g++','CSWautomake','CSWautoconf','CSWlibtool','CSWgdb','CSWbinutils']
-          $package_provide = 'pkgutil'
+          $package_provider = 'pkgutil'
         }
         default: {
           warning("Module 'gccbuildutils' is not currently supported on Solaris with ${::kernelrelease}")
