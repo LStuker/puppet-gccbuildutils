@@ -28,7 +28,8 @@
 class gccbuildutils (
   $ensure              = 'present',
   $autoupgrade         = false,
-  $packages             = $gccbuildutils::params::packages,
+  $packages            = $gccbuildutils::params::packages,
+  $package_provider    = $gccbuildutils::params::package_provider,
 ) inherits gccbuildutils::params {
 
   case $ensure {
@@ -48,6 +49,7 @@ class gccbuildutils (
   }
 
   package { $packages:
-    ensure    => $package_ensure,
+    ensure   => $package_ensure,
+    provider => $package_provider,
   }
 }
